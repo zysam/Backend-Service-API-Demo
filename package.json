@@ -1,0 +1,46 @@
+{
+  "name": "backend-service-api-demo",
+  "version": "1.0.0",
+  "description": "no desc",
+  "private": true,
+  "dependencies": {
+    "egg": "^2.0.0",
+    "egg-bcrypt": "^1.0.0",
+    "egg-cors": "^2.0.0",
+    "egg-jwt": "^2.2.0",
+    "egg-mongoose": "^2.1.1",
+    "egg-redis": "^2.0.0",
+    "egg-scripts": "^2.1.0",
+    "egg-validate": "^1.0.0",
+    "moment": "^2.20.1"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.3.5",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.13.0",
+    "eslint": "^4.11.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon",
+    "stop": "egg-scripts stop",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "zysam",
+  "license": "MIT"
+}
