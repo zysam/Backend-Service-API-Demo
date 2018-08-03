@@ -29,12 +29,12 @@ class UserAccessService extends Service {
     const _id = ctx.state.user.data._id
     const user = await service.user.find(_id)
     if (!user) {
-      ctx.throw(404, 'user is not found')
+      ctx.throw(400, 'user is not found')
     }
 
     let verifyPsw = await ctx.compare(values.oldPassword, user.password) 
     if (!verifyPsw) {
-      ctx.throw(404, 'user password error')
+      ctx.throw(400, 'user password error')
     } else {
       // 重置密码
       values.password = await ctx.genHash(values.password)
@@ -48,7 +48,7 @@ class UserAccessService extends Service {
     const _id = ctx.state.user.data._id
     const user = await service.user.find(_id)
     if (!user) {
-      ctx.throw(404, 'user is not found')
+      ctx.throw(400, 'user is not found')
     }
     user.password = 'How old are you?'
     return user
@@ -61,7 +61,7 @@ class UserAccessService extends Service {
     const _id = ctx.state.user.data._id
     const user = await service.user.find(_id)
     if (!user) {
-      ctx.throw(404, 'user is not found')
+      ctx.throw(400, 'user is not found')
     }
     return service.user.findByIdAndUpdate(_id, values)
   }

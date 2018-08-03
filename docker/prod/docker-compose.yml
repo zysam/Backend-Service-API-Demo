@@ -1,0 +1,26 @@
+version: '2'
+services:
+  mongo:
+    image: "mongo:latest"
+    expose:
+    - 27017
+    networks:
+      - db
+  redis:
+    image: "redis:3.0-alpine"
+    networks: 
+      - db
+  bs-api-demo:
+    build:
+      context: ../../
+      dockerfile: ./Dockerfile
+    ports:
+     - "7001:7001"
+    networks:
+      - db
+    depends_on:
+      - mongo
+      - redis
+networks:
+  db:
+   driver: bridge

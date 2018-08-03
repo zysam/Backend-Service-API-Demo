@@ -28,7 +28,7 @@ module.exports = appInfo => {
   }
 
   config.mongoose = {
-    url: 'mongodb://127.0.0.1:27017/bs-api-demo-dev',
+    url: 'mongodb://mongo:27017/bs-api-demo',
     options: {
       useMongoClient: true,
       autoReconnect: true,
@@ -46,7 +46,7 @@ module.exports = appInfo => {
   config.redis = {
     client: {
       port: 6379,          // Redis port
-      host: '127.0.0.1',   // Redis host
+      host: 'redis',   // Redis host
       password: '',
       db: 0,
     },
