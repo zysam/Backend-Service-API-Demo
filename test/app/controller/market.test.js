@@ -28,6 +28,7 @@ describe('test/app/controller/market.test.js', () => {
       location: '广州珠江新城xx 2404',
       password: 'aaabbb'
     }
+    await app.model.User.remove({mobile: user.mobile})
     const ctx = app.mockContext()
     await ctx.service.user.create(Object.assign({}, user))
     const {token} = await ctx.service.userAccess.login({
