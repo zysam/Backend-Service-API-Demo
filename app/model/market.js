@@ -3,7 +3,7 @@ module.exports = app => {
   const schema = new mongoose.Schema({
     assetName: { type: String, required: true},
     price: { type: Number, required: true},
-    lastTime: { type: String, required: true}
+    lastTime: { type: String, default: Date.now}
   })
   schema.set('timestamps', true)
   schema.set('collection', 'markets')

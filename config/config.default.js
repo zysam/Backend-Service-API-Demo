@@ -4,14 +4,14 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1513779989145_8890'
 
+  config.logger = {
+    level: 'DEBUG',
+  }
+
   // add your config here
   // 加载 errorHandler 中间件
   config.middleware = [ 'errorHandler' ]
 
-  // 只对 /api 前缀的 url 路径生效
-  // config.errorHandler = {
-  //   match: '/api',
-  // }
 
   config.security = {
     csrf: {
@@ -39,7 +39,7 @@ module.exports = appInfo => {
   }
 
   config.jwt = {
-    secret: 'demo-api',
+    secret: 'api-demo',
     // enable: true, // default is false
     // match: '/jwt', // optional
   }

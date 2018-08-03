@@ -24,4 +24,8 @@ module.exports = app => {
   // admin
   router.post('/api/news', controller.news.create)
   router.put('/api/news/:_id', controller.news.update)
+
+  // market
+  router.post('/api/markets', controller.market.create)
+  router.get('/api/markets', app.jwt, controller.market.index)
 }
