@@ -5,7 +5,7 @@
 module.exports = app => {
   const { router, controller } = app
   
-  // userAccess
+  // user access
   router.post('/signup', controller.user.create)
   router.post('/login', controller.userAccess.login)
   router.get('/logout', app.jwt, controller.userAccess.logout)
@@ -17,4 +17,11 @@ module.exports = app => {
   
   // mobile
   router.post('/api/phones/verify', controller.phone.sendVerifyCode)
+
+  // user access news
+  router.get('/api/news', app.jwt, controller.news.index)
+
+  // admin
+  router.post('/api/news', controller.news.create)
+  router.put('/api/news/:_id', controller.news.update)
 }

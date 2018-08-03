@@ -26,7 +26,7 @@ describe('test/app/controller/user.test.js', () => {
       .post('/signup')
       .send(user)
       .expect(200)
-    console.log(body)
+    // console.log(body)
     assert(body.code === 0)
     assert(body.data.mobile === user.mobile)
   })
@@ -36,7 +36,7 @@ describe('test/app/controller/user.test.js', () => {
       .send({mobile: user.mobile, password: user.password})
       .expect(200)
     
-    console.log(body)
+    // console.log(body)
     assert(body.data.token.length > 10)
     Token = body.data.token
   })
@@ -46,7 +46,7 @@ describe('test/app/controller/user.test.js', () => {
       .set('Authorization', 'Bearer ' + Token)
       .send({password: '999990', oldPassword: user.password})
       .expect(200)
-    console.log(body)
+    // console.log(body)
     assert(body.code === 0)
   })
 })
